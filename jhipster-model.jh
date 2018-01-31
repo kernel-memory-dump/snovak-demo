@@ -1,0 +1,16 @@
+entity Topic {
+	name String
+}
+
+relationship ManyToOne {
+	Topic{creator} to User
+}
+
+// Set pagination options
+paginate Topic with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+

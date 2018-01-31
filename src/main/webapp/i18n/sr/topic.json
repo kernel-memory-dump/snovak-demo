@@ -1,0 +1,24 @@
+
+{
+    "snovakApp": {
+        "topic" : {
+            "home": {
+                "title": "Topics",
+                "createLabel": "Kreiraj novi Topic",
+                "createOrEditLabel": "Kreirajte ili izmenite Topic",
+                "search": "Potražite Topic"
+            },
+            "created": "Kreiran je novi Topic pod nazivom {{ param }}",
+            "updated": "Topic pod nazivom {{ param }} je ažuriran",
+            "deleted": "Topic pod nazivom {{ param }} je obrisan",
+            "delete": {
+                "question": "Da li ste sigurni da želite da obrišete Topic pod nazivom {{ id }}?"
+            },
+            "detail": {
+                "title": "Topic"
+            },
+            "name": "Name",
+            "creator": "Creator"
+        }
+    }
+}

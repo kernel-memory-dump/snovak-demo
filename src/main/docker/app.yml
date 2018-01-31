@@ -1,0 +1,19 @@
+version: '2'
+services:
+    snovak-app:
+        image: snovak
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://snovak-postgresql:5432/snovak
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=snovak-elasticsearch:9300
+        ports:
+            - 8080:8080
+    snovak-postgresql:
+        extends:
+            file: postgresql.yml
+            service: snovak-postgresql
+    snovak-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: snovak-elasticsearch
