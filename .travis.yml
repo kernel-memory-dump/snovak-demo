@@ -2,6 +2,7 @@ os:
 - linux
 services:
 - docker
+- postgresql
 language: node_js
 node_js:
 - 8.9.4
@@ -31,9 +32,13 @@ before_install:
 - yarn global add bower gulp-cli
 install:
 - yarn install
+before_script:
+  - psql -c 'CREATE USER travis WITH CREATEDB;' -U postgres
+  - psql -c 'CREATE database snovak;' -U postgres
+  - psql -c 'ALTER DATABASE snovak OWNER TO travis' -U postgres
 script:
 - chmod +x mvnw
-- "./mvnw clean test"
+- "./mvnw clean test -Dspring.profiles.active=travis"
 - gulp test
 notifications:
   webhooks:
