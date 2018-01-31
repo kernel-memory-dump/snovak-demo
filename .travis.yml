@@ -34,7 +34,7 @@ install:
 - yarn install
 - bower install
 before_script:
-  - psql -c "CREATE ROLE travisSnovak WITH PASSWORD 'travis-snovak-pass' SUPERUSER CREATEDB INHERIT LOGIN;" -U postgres
+  - psql -c "CREATE USER travisSnovak WITH PASSWORD 'travis-snovak-pass' SUPERUSER CREATEDB INHERIT LOGIN;" -U postgres
   - psql -c 'CREATE database snovak;' -U postgres
   - psql -c 'ALTER DATABASE snovak OWNER TO travisSnovak' -U postgres
   - psql -c 'ALTER DATABASE snovak OWNER TO travisSnovak' -U postgres
