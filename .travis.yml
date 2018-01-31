@@ -30,6 +30,7 @@ before_install:
 - yarn global add bower gulp-cli
 install:
 - yarn install
+- bower install
 before_script:
   - psql -c "CREATE USER travisSnovak WITH PASSWORD 'travis-snovak-pass' CREATEDB;" -U postgres
   - psql -c 'CREATE database snovak;' -U postgres
