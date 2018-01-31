@@ -32,10 +32,11 @@ install:
 - yarn install
 - bower install
 before_script:
-  - psql -c "CREATE ROLE travisSnovak WITH PASSWORD 'travis-snovak-pass' SUPERUSER  CREATEDB CREATEROLE INHERIT LOGIN;" -U postgres
+  - psql -c "CREATE ROLE travisSnovak WITH PASSWORD 'travis-snovak-pass' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" -U postgres
   - psql -c 'CREATE database snovak;' -U postgres
   - psql -c 'ALTER DATABASE snovak OWNER TO travisSnovak' -U postgres
   - psql -c 'ALTER DATABASE snovak OWNER TO travisSnovak' -U postgres
+  - psql -c 'GRANT CREATE ON DATABASE snovak TO "travisSnovak";' -U postgres
 script:
 - chmod +x mvnw
 - "./mvnw clean test -Dspring.profiles.active=travis"

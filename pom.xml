@@ -330,6 +330,15 @@
             <artifactId>spring-security-data</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        
+        <!--  CUSTOM DEPENDENCIES  -->
+	<dependency>
+		<groupId>io.socket</groupId>
+		<artifactId>socket.io-client</artifactId>
+		<version>0.8.2</version>
+	</dependency>
+	
+	
     </dependencies>
 
     <build>
